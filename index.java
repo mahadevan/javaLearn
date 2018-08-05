@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class index{
     public static void main(String[] args) {
-        System.out.println("New");
+        System.out.println("New Changes");
         userChoice();
     }
 
