@@ -17,16 +17,11 @@ public class index{
         System.out.println("2. Looping Program");
         System.out.println("3. Calculator");
         System.out.println("4. exit");
-        int option = scanSelection(ask);
+        int option = InputHelper.readNumber(ask);
         exitLoop = programRun(option);
         }
     }
     
-    public static int scanSelection(String prompt){
-        System.out.print(prompt);
-        Scanner takeSelection = new Scanner(System.in);
-        return takeSelection.nextInt();
-    }
     public static boolean programRun(int choice){
         switch(choice){ 
             case 1: helloWorld();
@@ -64,9 +59,7 @@ public class index{
     }
     public static int scanLoopSelection(String prompt){
         System.out.print(prompt);
-        System.out.println("\n1.ForEach Loop\n2.For Loop\n3.While Loop\n4.Do-While Loop");
-        Scanner selectLoop = new Scanner(System.in);
-        return selectLoop.nextInt();
+        return InputHelper.readNumber("\n1.ForEach Loop\n2.For Loop\n3.While Loop\n4.Do-While Loop");
     }
  
 
@@ -130,45 +123,44 @@ public class index{
 
     public static void simpleCalc() {
 
-        Double firstNum = getFirstNum("\nEnter First Number : ");
+        int firstNum = InputHelper.readNumber("\nEnter First Number : ");
 
-        Double secondNum = getSecondNum("\nEnter Second Number : ");
+        int secondNum = InputHelper.readNumber("\nEnter Second Number : ");
 
         performAction(firstNum,secondNum);
 
     }
 
-        public static Double getFirstNum (String ask){
+    /*    public static int getFirstNum (String ask){
             System.out.print(ask);
             Scanner readFirstNum = new Scanner(System.in);
             String readStr1 = readFirstNum.nextLine();
-            Double firstDouble = Double.parseDouble(readStr1);
-            return firstDouble;
+            int firstInt = Integer.parseInt(readStr1);
+            return firstInt;
         }
 
-        public static Double getSecondNum (String ask){
+        public static int getSecondNum (String ask){
             System.out.print(ask);
             Scanner readSecondNum = new Scanner(System.in);
             String readStr2 = readSecondNum.nextLine();
-            Double secondDouble = Double.parseDouble(readStr2);
-            return secondDouble;
+            int secondInt = Integer.parseInt(readStr2);
+            return secondInt;
         }
-
+*/
         public static void choices () {
             System.out.println("1. Add");
             System.out.println("2. Subtract");
             System.out.println("3. Multiply");
-            System.out.println("4. Quotient");
+            System.out.println("4. Quotient (approx)");
             System.out.println("5. Remainder");
             System.out.println("6. Exit This Program.");
         }
 
-        public static double performAction(double first,double second) {
+        public static int performAction(int first,int second) {
             System.out.println("\nPlease Enter Your Choice Of Operation ? ");
             choices();
 
-            Scanner scanChoice = new Scanner(System.in);
-            int choiceOpn = scanChoice.nextInt();
+            int choiceOpn = InputHelper.readNumber("Choice : ");
 
             switch (choiceOpn) {
                 case 1:
@@ -198,32 +190,32 @@ public class index{
             return -1;
         }
 
-        public static void addNum(double first, double second) {
-        double result = first + second;
+        public static void addNum(int first, int second) {
+        int result = first + second;
         System.out.println(result);
         performAction(first,second);
         }
 
-        public static void subNum(double first, double second) {
-            double result = first - second;
+        public static void subNum(int first, int second) {
+            int result = first - second;
             System.out.println(result);
             performAction(first,second);
         }
 
-        public static void mulNum(double first, double second) {
-            double result = first * second;
+        public static void mulNum(int first, int second) {
+            int result = first * second;
             System.out.println(result);
             performAction(first,second);
         }
 
-        public static void quoNum(double first, double second) {
+        public static void quoNum(int first, int second) {
             double result = first / second;
             System.out.println(result);
             performAction(first,second);
         }
 
-        public static void remNum(double first, double second) {
-            double result = first % second;
+        public static void remNum(int first, int second) {
+            int result = first % second;
             System.out.println(result);
             performAction(first,second);
         }
